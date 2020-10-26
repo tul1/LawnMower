@@ -8,7 +8,7 @@ The file `input_file.txt` in the repository is an example of configuration file.
 ### Build with Maven
 To build the project just run the following command:
 ```bash
-$maven package
+$mvn package
 ```
 To perform this you'll have to install Maven:3.+.
 This operation will create a directory named `target` where the java package will be contained.
