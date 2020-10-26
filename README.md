@@ -37,4 +37,4 @@ To ask a review, your PR must pass the following criteria:
 * Coverage over 90%
 
 ## The Latest Release
-[v1.0.0](https://github.com/tul1/LawnMower/releases/tag/v1.0.0)
+*[v1.0.0](https://github.com/tul1/LawnMower/releases/tag/v1.0.0): Bulbasaur
