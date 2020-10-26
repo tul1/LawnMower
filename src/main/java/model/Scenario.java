@@ -6,9 +6,7 @@ import model.Orientation.Direction;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 
-import java.awt.*;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
