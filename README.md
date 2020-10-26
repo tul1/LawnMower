@@ -1,6 +1,8 @@
 # LawnMower
 
 This is a program for the company X and what it does it is to implement algorithm to mow rectangular surfaces.
+LawnMower will control sequentially N lawn mowers, each one following directives from a configuration file.
+The file `input_file.txt` in the repository is an example of configuration file.
 
 ## Build and run LawnMower
 ### Build with Maven
@@ -27,3 +29,13 @@ Once the package is built you'll just have to run the following command:
 $java -cp target/LawnMower-1.0.jar App input_file.txt
 ```
 An SDK of Java8 or greater must be installed in your system to run LawnMower.
+
+## Build and run LawnMower
+To contribute with our project you have just to create an Issue attached to one of our Milestone and create a Pull Request with your code linked to your Issue.
+To ask a review, your PR must pass the following criteria:
+* All tests Passing!
+* Coverage over 90%
+
+## The Latest Release
+* v1.0.0
+
