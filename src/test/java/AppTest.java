@@ -94,6 +94,8 @@ class AppTest {
                 new String[]{"src/test/resources/no_commands.txt"}));
         assertThrows(IllegalStateException.class, () -> App.main(
                 new String[]{"src/test/resources/spaces_between_commands.txt"}));
+        assertThrows(IllegalStateException.class, () -> App.main(
+                new String[]{"src/test/resources/mower_out_of_lawn.txt"}));
 
         // then
     }

@@ -102,6 +102,9 @@ public class Scenario {
     }
 
     public void addMowersCoordinate(int xPos, int yPos, char orientation, int id) {
+        if (xPos > lawn.getxMax() || yPos > lawn.getyMax()) {
+            throw new IllegalStateException(String.format("Mower is out of the lawn: Mower(x=%d, y=%d)", xPos, yPos));
+        }
         Position p = new Position(xPos, yPos);
         Orientation o = new Orientation(orientation);
         mowersPositions.put(p, id);

@@ -28,8 +28,8 @@ class ConfigFileParserTest {
 
         // then
         Scenario expectedScenario = new Scenario();
-        expectedScenario.addMowersCoordinate(1,1, 'N', 0);
         expectedScenario.setLawn(new Lawn(5, 5));
+        expectedScenario.addMowersCoordinate(1,1, 'N', 0);
         Commands expectedCommands = new Commands();
         expectedCommands.addCommands(0,"R");
         ConfigElement expectedConfigElement = new ConfigElement(expectedScenario, expectedCommands);
