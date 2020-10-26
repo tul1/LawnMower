@@ -5,10 +5,11 @@ import model.ScenarioPrinter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.security.spec.InvalidParameterSpecException;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, InvalidParameterSpecException {
         // Parse arguments
         AppArguments arguments = ArgumentsParser.parseArguments(args);
         // Parse input

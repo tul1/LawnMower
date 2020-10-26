@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.security.spec.InvalidParameterSpecException;
 import java.util.InputMismatchException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -27,14 +28,36 @@ class AppTest {
     }
 
     @Test
-    void main() throws FileNotFoundException {
+    void main() throws FileNotFoundException, InvalidParameterSpecException {
         // given
 
         // when
-        App.main(new String[] {"src/test/resources/file.txt"});
+        App.main(new String[]{"src/test/resources/file.txt"});
 
         // then
         assertEquals("1 3 N\n5 1 E\n", testOutput.toString());
+    }
+
+    @Test
+    void mainOneMowerWithNoCommands() throws FileNotFoundException, InvalidParameterSpecException {
+        // given
+
+        // when
+        App.main(new String[]{"src/test/resources/steady_mower.txt"});
+
+        // then
+        assertEquals("1 3 N\n", testOutput.toString());
+    }
+
+    @Test
+    void mainNoMower() throws FileNotFoundException, InvalidParameterSpecException {
+        // given
+
+        // when
+        App.main(new String[]{"src/test/resources/no_mowers.txt"});
+
+        // then
+        assertEquals("", testOutput.toString());
     }
 
     @Test
@@ -42,7 +65,7 @@ class AppTest {
         // given
 
         // when
-        assertThrows(FileNotFoundException.class, () -> App.main(new String[] {""}));
+        assertThrows(FileNotFoundException.class, () -> App.main(new String[]{""}));
 
         // then
     }
@@ -52,8 +75,8 @@ class AppTest {
         // given
 
         // when
-        assertThrows(IllegalArgumentException.class, () -> App.main(new String[] {}));
-        assertThrows(IllegalArgumentException.class, () -> App.main(new String[] {"hello", "world"}));
+        assertThrows(IllegalArgumentException.class, () -> App.main(new String[]{}));
+        assertThrows(IllegalArgumentException.class, () -> App.main(new String[]{"hello", "world"}));
 
         // then
     }
@@ -64,8 +87,32 @@ class AppTest {
 
         // when
         assertThrows(IllegalStateException.class, () -> App.main(
-                new String[] {"src/test/resources/incorrect_command.txt"}));
+                new String[]{"src/test/resources/incorrect_command.txt"}));
+        assertThrows(IllegalStateException.class, () -> App.main(
+                new String[]{"src/test/resources/incorrect_position.txt"}));
+        assertThrows(IllegalStateException.class, () -> App.main(
+                new String[]{"src/test/resources/no_commands.txt"}));
+        assertThrows(IllegalStateException.class, () -> App.main(
+                new String[]{"src/test/resources/spaces_between_commands.txt"}));
 
         // then
+    }
+
+    @Test
+    void mainThrowInputMismatchException() {
+        // given
+
+        // when
+        assertThrows(InputMismatchException.class, () -> App.main(
+                new String[]{"src/test/resources/no_lawn_dim.txt"}));
+        assertThrows(InputMismatchException.class, () -> App.main(
+                new String[]{"src/test/resources/only_commands.txt"}));
+        assertThrows(InputMismatchException.class, () -> App.main(
+                new String[]{"src/test/resources/only_commands_1.txt"}));
+        assertThrows(InputMismatchException.class, () -> App.main(
+                new String[]{"src/test/resources/only_commands_2.txt"}));
+
+        //then
+
     }
 }
