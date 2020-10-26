@@ -3,6 +3,8 @@ package service;
 import model.Commands;
 import model.Scenario;
 
+import java.util.Objects;
+
 public class ConfigElement {
     private final Scenario scenario;
     private final Commands commands;
@@ -18,6 +20,20 @@ public class ConfigElement {
 
     public Commands getCommands() {
         return commands;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ConfigElement that = (ConfigElement) o;
+        return Objects.equals(scenario, that.scenario) &&
+                Objects.equals(commands, that.commands);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(scenario, commands);
     }
 
     @Override

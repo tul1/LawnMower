@@ -19,20 +19,14 @@ public abstract class ConfigFileParser {
         int lawnYMax = scanner.nextInt();
         scenario.setLawn(new Lawn(lawnXMax, lawnYMax));
         int mowerId = 0;
-        boolean singleMower = false;
         while (scanner.hasNextLine()) {
-            if (singleMower) {
-                throw new InvalidParameterSpecException();
-            }
             int xPos = scanner.nextInt();
             int yPos = scanner.nextInt();
             char orientation = scanner.next().charAt(0);
             try {
                 scanner.nextLine();
                 commands.addCommands(mowerId, scanner.nextLine());
-            } catch (NoSuchElementException e) {
-                singleMower = true;
-            }
+            } catch (NoSuchElementException e) {}
             scenario.addMowersCoordinate(xPos, yPos, orientation, mowerId++);
         }
         return new ConfigElement(scenario, commands);

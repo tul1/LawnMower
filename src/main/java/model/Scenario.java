@@ -8,6 +8,7 @@ import com.google.common.collect.HashBiMap;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 
 public class Scenario {
@@ -105,6 +106,21 @@ public class Scenario {
         Orientation o = new Orientation(orientation);
         mowersPositions.put(p, id);
         mowersOrientations.put(id, o);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Scenario scenario = (Scenario) o;
+        return Objects.equals(mowersPositions, scenario.mowersPositions) &&
+                Objects.equals(mowersOrientations, scenario.mowersOrientations) &&
+                Objects.equals(lawn, scenario.lawn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mowersPositions, mowersOrientations, lawn);
     }
 
     @Override

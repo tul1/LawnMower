@@ -1,9 +1,6 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Commands {
 
@@ -41,6 +38,19 @@ public class Commands {
             }
         }
         commands.put(mowerId, mowerCommands);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Commands commands1 = (Commands) o;
+        return Objects.equals(commands, commands1.commands);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(commands);
     }
 
     @Override
