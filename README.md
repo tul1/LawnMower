@@ -30,11 +30,20 @@ $java -cp target/LawnMower-1.0.jar App input_file.txt
 ```
 An SDK of Java8 or greater must be installed in your system to run LawnMower.
 
-## Build and run LawnMower
+### Run LawnMower: production version
+To run a production version LawnMower you just have to run the following commands: 
+```bash
+$docker login
+$docker pull tul1/lawnmower:tagname
+$docker run -it -v /local/path/to/input_file.txt:/app/input_files/ -t tul1/lawnmower:latest java -cp target/LawnMower-1.0.jar App /app/input_files/input_file.txt
+```
+Production version are based on LawnMower releases.
+
+## LawnMower Releases
+* [v1.0.0](https://github.com/tul1/LawnMower/releases/tag/v1.0.0): Bulbasaur
+
+## How to contribute
 To contribute with our project you have just to create an Issue attached to one of our Milestone and create a Pull Request with your code linked to your Issue.
 To ask a review, your PR must pass the following criteria:
 * All tests Passing!
 * Coverage over 90%
-
-## The Latest Release
-* [v1.0.0](https://github.com/tul1/LawnMower/releases/tag/v1.0.0): Bulbasaur
