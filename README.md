@@ -35,9 +35,16 @@ To run a production version LawnMower you just have to run the following command
 ```bash
 $docker login
 $docker pull tul1/lawnmower:tagname
-$docker run -it -v /local/path/to/input_file.txt:/app/input_files/ -t tul1/lawnmower:latest java -cp target/LawnMower-1.0.jar App /app/input_files/input_file.txt
+$docker run -v /local/path/to/input_file.txt:/app/input_files/ -t tul1/lawnmower:latest java -cp target/LawnMower-1.0.jar App /app/input_files/input_file.txt
 ```
 Production version are based on LawnMower releases.
+Alternatively you can access the container with the interactive mode and run the LawnMower inside, with the following commands:
+```bash
+$docker login
+$docker pull tul1/lawnmower:tagname
+$docker run -it -v /local/path/to/input_file.txt:/app/input_files/ -t tul1/lawnmower:latest bash
+#java -cp target/LawnMower-1.0.jar App /app/input_files/input_file.txt
+```
 
 ## LawnMower Releases
 * [v1.0.0](https://github.com/tul1/LawnMower/releases/tag/v1.0.0): Bulbasaur
