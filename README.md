@@ -2,8 +2,7 @@
 
 This is a program for the company X and what it does it is to implement algorithm to mow rectangular surfaces.
 LawnMower will control sequentially N lawn mowers, each one following directives from a configuration file.
-In the directory [input_files](https://github.com/tul1/LawnMower/tree/master/input_files) you'll find examples and documentation of the input files that LawnMower consumes. 
-LawnMower will output the final position and orientation of each mower in the order that the mower appeared in the input.
+The file `input_file.txt` in the repository is an example of configuration file.
 
 ## Build and run LawnMower
 ### Build with Maven
@@ -36,15 +35,14 @@ To run a production version LawnMower you just have to run the following command
 ```bash
 $docker login
 $docker pull tul1/lawnmower:tagname
-$docker run -v ./input_files:/app/input_files -t tul1/lawnmower:latest java -cp target/LawnMower-1.0.jar App /app/input_files/input_file.txt
+$docker run -v /local/path/to/input_file.txt:/app/input_files/ -t tul1/lawnmower:latest java -cp target/LawnMower-1.0.jar App /app/input_files/input_file.txt
 ```
-
 Production version are based on LawnMower releases.
 Alternatively you can access the container with the interactive mode and run the LawnMower inside, with the following commands:
 ```bash
 $docker login
 $docker pull tul1/lawnmower:tagname
-$docker run -it -v ./input_files:/app/input_files -t tul1/lawnmower:latest bash
+$docker run -it -v /local/path/to/input_file.txt:/app/input_files/ -t tul1/lawnmower:latest bash
 #java -cp target/LawnMower-1.0.jar App /app/input_files/input_file.txt
 ```
 
